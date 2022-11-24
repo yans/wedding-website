@@ -1,0 +1,40 @@
+.headline {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+
+  font-family: 'Noto Serif Display', serif;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  text-align: center;
+
+  margin: 0;
+}
+
+.headlineH2 {
+  font-size: 20vmin;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 2rem;
+
+  margin-right: -2rem;
+}
+
+.headlineH3 {
+  font-size: 10vmin;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: 1rem;
+
+  margin-right: -1rem;
+}
+
+.headlineSlashContainer {
+  letter-spacing: 0;
+  font-size: 6rem;
+}
+
+.headlineSlash {
+  position: relative;
+  left: -50%;
+}

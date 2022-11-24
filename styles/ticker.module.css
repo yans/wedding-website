@@ -1,0 +1,47 @@
+.measureColumnsRoot {
+  pointer-events: none;
+  position: absolute;
+  visibility: hidden;
+}
+
+.tickerRoot {
+  overflow: hidden;
+  position: relative;
+}
+
+.staticValue {
+  opacity: 1;
+}
+
+.staticValueTransitioning {
+  opacity: 0;
+}
+
+.animatedColumn {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.animatedColumnTransitioning {
+  opacity: 1;
+  pointer-events: none;
+}
+
+.columnTransitionWrapper {
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+/*
+The Ticker measures the size of each character by rendering it inside
+of an inline-block level container and observing that container's size. We wrap
+each character in an inline-block container here so that the space each character
+takes up lines up with the measurements the Ticker's made. This also ensures that
+the full string selectable by the browser as a single text block.
+*/
+.character {
+  display: inline-block;
+  transition: color 300ms;
+}
