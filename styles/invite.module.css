@@ -1,5 +1,55 @@
 .section {
+  position: relative;
+
   background-color: #131313;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
   height: 100vh;
   width: 100%;
+
+  contain: paint;
+  -webkit-clip-path: inset(0);
+  clip-path: inset(0);
+  clip: rect(0px, auto, auto, 0px);
+}
+
+
+.headerContainer {
+  position: absolute;
+  height: calc(100% + 100vh);
+
+  margin-top: -100vh;
+}
+
+.headerContent {
+  position: sticky;
+  top: 20vh;
+  height: 80vh;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.text {
+  color: #F0F0F0;
+  text-shadow: 0px 0px 12px #131313;
+}
+
+.location {
+  width: 60vw;
+  height: 20vh;
+
+  margin-top: 1em;
+  margin-bottom: 1em;
 }

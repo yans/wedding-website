@@ -3,6 +3,7 @@ import styles from '../styles/memories.module.css'
 import cx from 'classnames'
 
 import { Date, Year } from './Date'
+import { Text } from './Text'
 
 const MEMORIES: Array<{
   id: string
@@ -21,7 +22,7 @@ const MEMORIES: Array<{
       month: "08",
       year: "2017"
     },
-    label: 'first date',
+    label: 'Our first date\nat Fort Mason',
     timestamp: 1503039600,
   },
   {
@@ -31,7 +32,7 @@ const MEMORIES: Array<{
       month: "12",
       year: "2017"
     },
-    label: 'first vacation together',
+    label: 'Our first vacation\ntogether in San Diego',
     timestamp: 1512115200,
   },
   {
@@ -41,7 +42,27 @@ const MEMORIES: Array<{
       date: "14",
       year: "2018"
     },
-    label: 'valentine together',
+    label: 'Our first Valentine\'s Day\ntogether',
+    timestamp: 1518595200,
+  },
+  {
+    id: 'timeline-2023-wedding',
+    display: {
+      month: "12",
+      date: "24",
+      year: "2021"
+    },
+    label: 'Proposed at\nFort Mason',
+    timestamp: 1518595200,
+  },
+  {
+    id: 'timeline-2023-wedding',
+    display: {
+      month: "08",
+      date: "18",
+      year: "2023"
+    },
+    label: 'Our Wedding at\nFort Mason',
     timestamp: 1518595200,
   }
 ]
@@ -54,6 +75,7 @@ export function MemoriesSection() {
   const [displayDate, setDisplayDate] = React.useState<string>("18")
   const [displayMonth, setDisplayMonth] = React.useState<string>("08")
   const [displayYear, setDisplayYear] = React.useState<string>("2017")
+  const [offset, setOffset] = React.useState<number>(0)
 
   const handleScroll = React.useCallback(() => {
     if (!sectionRef.current || !progressionRef.current) {
@@ -72,8 +94,10 @@ export function MemoriesSection() {
       setDisplayDate(currentMemory.display.date)
       setDisplayMonth(currentMemory.display.month)
       setDisplayYear(currentMemory.display.year)
+      setOffset(index)
     }
 
+    document.getElementById('')
     console.log(
       'sectionHeight =', sectionHeight,
       'progressionTrackerHeight =', progressionTrackerHeight,
@@ -102,18 +126,24 @@ export function MemoriesSection() {
             />
             <Year year={displayYear} />
           </header>
-          <h4 className={styles.description}>
-            <div className={styles.descriptionPrompt}>
-              first
-            </div>
+          <Text className={styles.description}>
             <div className={styles.descriptionAnswer}>
-              <ul className={styles.descriptionAnswersList}>
+              <ul
+                className={styles.descriptionAnswersList}
+                style={{ top: `calc(${offset} * -100%)` }}
+              >
                 {MEMORIES.map(memory => (
-                  <li key={memory.id} id={memory.id}>{memory.label}</li>
+                  <li
+                    className={styles.descriptionAnswersListItem}
+                    key={memory.id}
+                    id={memory.id}
+                  >
+                    {memory.label}
+                  </li>
                 ))}
               </ul>
             </div>
-          </h4>
+          </Text>
         </div>
       </div>
     </section>
