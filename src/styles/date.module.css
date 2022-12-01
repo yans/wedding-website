@@ -1,0 +1,39 @@
+.headline {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+
+  font-family: 'Noto Serif Display', serif;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+
+  margin: 0;
+}
+
+.header {
+  font-size: var(--header-font-size);
+  font-weight: 900;
+  line-height: var(--header-line-height);
+  letter-spacing: var(--header-letter-space);
+
+  margin-right: calc(-1 * var(--header-letter-space));
+}
+
+.body {
+  font-size: var(--body-font-size);
+  font-weight: 300;
+  line-height: var(--body-line-height);
+  letter-spacing: var(--body-letter-space);
+
+  margin-right: calc(-1 * var(--body-letter-space));
+}
+
+.headlineSlashContainer {
+  letter-spacing: 0;
+  font-size: 6rem;
+}
+
+.headlineSlash {
+  position: relative;
+  left: -50%;
+}

@@ -1,0 +1,30 @@
+.body {
+  font-family: "Noto Serif Display", serif;
+  font-size: var(--body-font-size);
+  font-weight: 300;
+  line-height: var(--body-line-height);
+  text-align: center;
+  white-space: pre-wrap;
+  letter-spacing: var(--body-letter-spacing);
+  margin-right: calc(-1 * var(--body-letter-spacing));
+
+  margin: 0;
+}
+
+.pre {
+  font-family: sans-serif;
+  font-size: var(--pre-font-size);
+  font-weight: 100;
+  line-height: var(--pre-line-height);
+  text-transform: uppercase;
+
+  letter-spacing: var(--pre-letter-spacing);
+  margin-right: calc(-1 * var(--pre-letter-spacing));
+
+  margin: 0;
+}
+
+.preCompact {
+  letter-spacing: 0;
+  margin-right: 0;
+}
