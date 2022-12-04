@@ -173,10 +173,10 @@ export function MemoriesSection() {
     const progressionTrackerHeight = progressionRef.current.offsetHeight
 
     const progression = progressionTrackerOffsetTop / (sectionHeight - progressionTrackerHeight)
-    const clampedProgression = Math.max(Math.min(progression, 0.95), 0.05)
-    const adjustedProgression = (clampedProgression - 0.05) / (0.95 - 0.05)
+    const clampedProgression = Math.max(Math.min(progression, 0.90), 0.05)
+    const adjustedProgression = (clampedProgression - 0.05) / (0.90 - 0.05)
 
-    return progression * (picturesWidth - sectionWidth)
+    return adjustedProgression * (picturesWidth - sectionWidth)
   }, [])
 
   const handleUpdateStyles = React.useCallback((picturesOffset: number) => {
@@ -249,10 +249,8 @@ export function MemoriesSection() {
 
   React.useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.addEventListener('resize', handleScroll);
     };
   }, [handleScroll]);
 
@@ -444,12 +442,13 @@ function Image(
       style={{ gridColumn: col, gridRow: row }}
       ref={pictureContainerRef}
     >
+      <div className={styles.pictureWash} />
       <img
         className={cx(styles.picture, 'force-hardware-acceleration')}
         ref={pictureRef}
         src={src}
       />
-      <div className={styles.pictureOverlay} />
+      <div className={cx(styles.pictureWash, styles.pictureWashOverlay)} />
     </div>
   )
 }
