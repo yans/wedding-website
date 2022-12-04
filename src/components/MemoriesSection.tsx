@@ -158,6 +158,42 @@ export function MemoriesSection() {
   const [displayYear, setDisplayYear] = React.useState<string>("2017")
   const [memoryIndex, setMemoryIndex] = React.useState<number>(0)
 
+  const handleGetPicturesOffset = React.useCallback(() => {
+    if (
+      !sectionRef.current
+      || !progressionRef.current
+      || !picturesFrontRef.current
+    ) {
+      return 0
+    }
+    const sectionHeight = sectionRef.current.offsetHeight
+    const sectionWidth = sectionRef.current.offsetWidth
+    const picturesWidth = picturesFrontRef.current.offsetWidth
+    const progressionTrackerOffsetTop = progressionRef.current.offsetTop
+    const progressionTrackerHeight = progressionRef.current.offsetHeight
+
+    const progression = progressionTrackerOffsetTop / (sectionHeight - progressionTrackerHeight)
+    const clampedProgression = Math.max(Math.min(progression, 0.95), 0.05)
+    const adjustedProgression = (clampedProgression - 0.05) / (0.95 - 0.05)
+
+    return progression * (picturesWidth - sectionWidth)
+  }, [])
+
+  const handleUpdateStyles = React.useCallback((picturesOffset: number) => {
+    if (
+      !sectionRef.current
+      || !picturesFrontRef.current
+      || !picturesBackRef.current) {
+      return
+    }
+    const sectionWidth = sectionRef.current.offsetWidth
+
+    picturesFrontRef.current.style.setProperty('--pictures-offset', picturesOffset.toString())
+    picturesFrontRef.current.style.setProperty('--section-width', sectionWidth.toString())
+    picturesBackRef.current.style.setProperty('--pictures-offset', picturesOffset.toString())
+    picturesBackRef.current.style.setProperty('--section-width', sectionWidth.toString())
+  }, [])
+
   const handleUpdateDate = React.useCallback(
     throttle(
       (date: Date) => {
@@ -174,48 +210,22 @@ export function MemoriesSection() {
       }, 50
     ), [])
 
-  const handleScroll = React.useCallback(() => {
-    if (
-      !sectionRef.current
-      || !progressionRef.current
-      || !picturesFrontRef.current
-      || !picturesBackRef.current
-    ) {
+  const handleUpdateDateAndMemory = React.useCallback((picturesOffset: number) => {
+    if (!sectionRef.current || !columnMeasurerRef.current) {
       return
     }
-    const sectionHeight = sectionRef.current.offsetHeight
     const sectionWidth = sectionRef.current.offsetWidth
-    const picturesWidth = picturesFrontRef.current.offsetWidth
-    const progressionTrackerOffsetTop = progressionRef.current.offsetTop
-    const progressionTrackerHeight = progressionRef.current.offsetHeight
-
-    const progression = progressionTrackerOffsetTop / (sectionHeight - progressionTrackerHeight)
-
-    const picturesOffset = progression * (picturesWidth - sectionWidth)
-    picturesFrontRef.current.style.setProperty('transform', `translateX(-${picturesOffset}px)`)
-    picturesFrontRef.current.style.setProperty('--pictures-offset', picturesOffset.toString())
-    picturesFrontRef.current.style.setProperty('--initial-offset-unitless', (sectionWidth * 2 / 3).toString())
-    picturesBackRef.current.style.setProperty('transform', `translateX(-${picturesOffset}px)`)
-    picturesBackRef.current.style.setProperty('--pictures-offset', picturesOffset.toString())
-    picturesBackRef.current.style.setProperty('--initial-offset-unitless', (sectionWidth * 2 / 3).toString())
-
-    if (!columnMeasurerRef.current) {
-      return
-    }
+    const picturesLeadingSpace = columnMeasurerRef.current.offsetLeft
     const columnWidth = columnMeasurerRef.current.offsetWidth
-    const columnsMidPointX = picturesOffset + sectionWidth / 2 - columnMeasurerRef.current.offsetLeft
-    // offset by 0.5 so that it counts current column when halfway through it
+
+    const columnsMidPointX = picturesOffset + sectionWidth / 2 - picturesLeadingSpace
+    // offset by 0.5 so that it counts the current column when it is halfway through it
     const currentColumn = Math.floor(Math.max(columnsMidPointX / columnWidth + 0.5, 0))
 
     const currentDateIndex = DATES.findIndex(date => currentColumn < date.column)
     const currentDate = DATES[(currentDateIndex === -1 ? DATES.length : currentDateIndex) - 1]
     const currentMemoryIndex = MEMORIES.findIndex(memory => currentColumn < memory.column)
     const adjustedMemoryIndex = (currentMemoryIndex === -1 ? MEMORIES.length : currentMemoryIndex) - 1
-
-    // console.log(
-    //   'currentColumn = ', currentColumn,
-    //   'currentDate = ', currentDate,
-    //   'currentMemory = ', MEMORIES[adjustedMemoryIndex])
 
     if (currentDate) {
       handleUpdateDate(currentDate)
@@ -224,6 +234,18 @@ export function MemoriesSection() {
       handleUpdateMemory(adjustedMemoryIndex)
     }
   }, [handleUpdateDate, handleUpdateMemory])
+
+  React.useLayoutEffect(() => {
+    const picturesOffset = handleGetPicturesOffset()
+    handleUpdateStyles(picturesOffset)
+    handleUpdateDateAndMemory(picturesOffset)
+  }, [])
+
+  const handleScroll = React.useCallback(() => {
+    const picturesOffset = handleGetPicturesOffset()
+    handleUpdateStyles(picturesOffset)
+    handleUpdateDateAndMemory(picturesOffset)
+  }, [handleUpdateDateAndMemory, handleUpdateStyles])
 
   React.useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -410,7 +432,6 @@ function Image(
     const pictureOffset = pictureContainerRef.current?.offsetLeft
     const pictureWidth = pictureContainerRef.current?.offsetWidth
     pictureContainerRef.current.style.setProperty('--picture-offset', pictureOffset.toString())
-    pictureContainerRef.current.style.setProperty('--picture-width', pictureWidth.toString())
     pictureContainerRef.current.style.setProperty('--variance', variantRef.current.toString())
   }, [pictureContainerRef.current])
   return (
