@@ -19,6 +19,7 @@ html, body {
   --pre-line-height: 1.5;
 
   --section-height: max(100vh, 50rem);
+  --border-radius: 0.5rem;
 }
 
 @media only screen and (max-width: 768px)  {

@@ -46,18 +46,16 @@
 }
 
 .description {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-
-  width: 100%;
+  --description-line-height: 1.5;
+  line-height: --description-line-height;
 
   overflow: hidden;
+
+  width: 100%;
 }
 
 .descriptionAnswer {
-  width: 60vw;
-  height: calc(2 * var(--body-font-size) * var(--header-line-height));
+  height: calc(2 * var(--body-font-size) * var(--description-line-height));
   max-height: 25vh;
 }
 
@@ -168,8 +166,20 @@
 
   --visible: calc(var(--visibility-factor) * var(--variance));
   --invisible: calc(1 - var(--visible));
+
   opacity: clamp(0.05, var(--visible), 1);
 }
+/*
+.pictureBack {
+  transform-origin: center;
+  transform: scale(0.95);
+}
+
+.pictureFront {
+  transform-origin: center;
+  transform: scale(1);
+}*/
+
 
 .pictureOverlay {
   position: absolute;
@@ -189,7 +199,7 @@
   object-fit: cover;
   border-radius: 5px;
 
-  transform-origin: left center;
+  transform-origin: center;
 
   filter:
     blur(clamp(0px, calc(var(--invisible) * 3px), 3px))

@@ -26,8 +26,10 @@ export function useAirtableData() {
       setData(results.map(result => result.fields))
     })
   }, [])
-  const postReservation = React.useCallback((newReservation: Reservation) => {
-    table.create([{ fields: newReservation }])
-  }, [])
+  const postReservation = React.useCallback(
+    (newReservation: Reservation) =>
+      table.create([{ fields: newReservation }]),
+    []
+  )
   return { data, getReservations, postReservation }
 }

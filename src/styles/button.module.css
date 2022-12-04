@@ -1,0 +1,23 @@
+.button {
+  display: inline-block;
+  cursor: pointer;
+
+  border-radius: var(--border-radius);
+  border-style: solid;
+  border-width: 1px;
+  padding: 12px 36px;
+  box-sizing: border-box;
+  margin: 0;
+
+  background: transparent;
+
+  font-family: sans-serif;
+  font-size: var(--pre-font-size);
+  font-weight: 100;
+  line-height: var(--pre-line-height);
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition: all 0.2s;
+}

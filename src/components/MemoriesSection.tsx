@@ -13,24 +13,23 @@ import image07 from '../../public/2017-11-18-13-32.jpeg'
 import image08 from '../../public/2017-12-03-15-04.jpeg'
 import image09 from '../../public/2017-12-03-17-01.jpeg'
 import image10 from '../../public/2017-12-23-14-14.jpeg'
-import image11 from '../../public/2018-08-03-22-20.jpeg'
-import image12 from '../../public/2018-08-04-16-03.jpeg'
-import image13 from '../../public/2018-11-01-19-58.jpeg'
-import image14 from '../../public/2018-11-02-00-39.jpeg'
-import image15 from '../../public/2018-11-02-11-08.jpeg'
-import image16 from '../../public/2018-11-02-11-51.jpeg'
-import image17 from '../../public/2018-12-24-10-41.jpeg'
-import image18 from '../../public/2019-06-16-11-59.jpeg'
-import image19 from '../../public/2019-12-27-13-00.jpeg'
-import image20 from '../../public/2020-02-13-14-38.jpeg'
-import image21 from '../../public/2020-02-14-15-41.jpeg'
-import image22 from '../../public/2021-05-28-12-10.jpeg'
-import image23 from '../../public/2021-05-30-10-28.jpeg'
-import image24 from '../../public/2021-09-21-11-27.jpeg'
-import image25 from '../../public/2021-12-24-09-19.jpeg'
-import image26 from '../../public/2021-12-24-10-29.jpeg'
-import image27 from '../../public/2021-12-24-11-45.jpeg'
-import image28 from '../../public/2021-12-24-16-17.jpeg'
+import image11 from '../../public/2018-08-04-16-03.jpeg'
+import image12 from '../../public/2018-11-01-19-58.jpeg'
+import image13 from '../../public/2018-11-02-00-39.jpeg'
+import image14 from '../../public/2018-11-02-11-08.jpeg'
+import image15 from '../../public/2018-11-02-11-51.jpeg'
+import image16 from '../../public/2018-12-24-10-41.jpeg'
+import image17 from '../../public/2019-06-16-11-59.jpeg'
+import image18 from '../../public/2019-12-27-13-00.jpeg'
+import image19 from '../../public/2020-02-13-14-38.jpeg'
+import image20 from '../../public/2020-02-14-15-41.jpeg'
+import image21 from '../../public/2021-05-28-12-10.jpeg'
+import image22 from '../../public/2021-05-30-10-28.jpeg'
+import image23 from '../../public/2021-09-21-11-27.jpeg'
+import image24 from '../../public/2021-12-24-09-19.jpeg'
+import image25 from '../../public/2021-12-24-10-29.jpeg'
+import image26 from '../../public/2021-12-24-11-45.jpeg'
+import image27 from '../../public/2021-12-24-16-17.jpeg'
 
 import { Date, Year } from './Date'
 import { Body } from './Text'
@@ -245,56 +244,55 @@ export function MemoriesSection() {
           <div ref={columnMeasurerRef} className={styles.columnMeasurer} />
 
           {/* 08/18 2017 from our first date at fort mason */}
-          {/*<Image col="1" row="1" src={image01.src} />*/}
-          <Image col="2 / 4" row="2" src={image02.src} />
-          <Image col="3" row="4" src={image03.src} />
-          <Image col="1 / 3" row="3 / 5" src={image04.src} />
+          {/*<Image col="1" position="front" row="1" src={image01.src} />*/}
+          <Image col="2 / 4" position="front" row="2" src={image02.src} />
+          {/*<Image col="3" position="front" row="4" src={image03.src} />*/}
+          {/*<Image col="1 / 3" position="front" row="3 / 5" src={image04.src} />*/}
 
           {/* 11/11 2017 followed by many more in SF */}
-          <Image col="4" row="2 / 4" src={image05.src} />
-          <Image col="4" row="5" src={image06.src} />
+          {/*<Image col="4" position="front" row="2 / 4" src={image05.src} />*/}
+          {/*<Image col="4" position="front" row="5" src={image06.src} />*/}
 
           {/* 12/03 2017 followed by many more in SF */}
-          <Image col="5" row="4" src={image07.src} />
-          <Image col="5" row="5" src={image08.src} />
-          <Image col="5" row="1 / 3" src={image09.src} />
+          {/*<Image col="5" position="front" row="4" src={image07.src} />*/}
+          {/*<Image col="5" position="front" row="5" src={image08.src} />*/}
+          {/*<Image col="5" position="front" row="1 / 3" src={image09.src} />*/}
 
           {/* 2017-12-22 to our many trips across the world */}
-          <Image col="6 / 8" row="2 / 4" src={image10.src} />
+          {/*<Image col="6 / 8" position="front" row="2 / 4" src={image10.src} />*/}
 
           {/* 2018-08-03 to our many trips across the world */}
-          {/* <Image col="9" row="3" src={image11.src} /> */}
-          <Image col="7 / 9" row="4 / 6" src={image12.src} />
+          <Image col="7 / 9" position="front" row="4 / 6" src={image11.src} />
 
           {/* 2018-11-01 to our many trips across the world */}
-          <Image col="8" row="3" src={image13.src} />
-          <Image col="9" row="3" src={image14.src} />
-          <Image col="8 / 10" row="1 / 3" src={image15.src} />
-          <Image col="10" row="2 / 4" src={image16.src} />
-          <Image col="10" row="4" src={image17.src} />
+          {/*<Image col="8" position="front" row="3" src={image12.src} />*/}
+          {/*<Image col="9" position="front" row="3" src={image13.src} />*/}
+          {/*<Image col="8 / 10" position="front" row="1 / 3" src={image14.src} />*/}
+          {/*<Image col="10" position="front" row="2 / 4" src={image15.src} />*/}
+          {/*<Image col="10" position="front" row="4" src={image16.src} />*/}
 
           {/* 2019-06-16 to our many trips across the world */}
-          <Image col="11 / 13" row="2 / 5" src={image18.src} />
+          {/*<Image col="11 / 13" position="front" row="2 / 5" src={image17.src} />*/}
 
           {/* 2019-12-25 to our many trips across the world */}
-          <Image col="12" row="5" src={image19.src} />
+          <Image col="12" position="front" row="5" src={image18.src} />
 
           {/* 2020-02-14 to our many trips across the world */}
-          <Image col="13" row="2" src={image20.src} />
-          <Image col="13" row="4" src={image21.src} />
+          <Image col="13" position="front" row="2" src={image19.src} />
+          {/*<Image col="13" position="front" row="4" src={image20.src} />*/}
 
           {/* 2021-05-28 to our many trips across the world */}
-          <Image col="14" row="3 / 5" src={image22.src} />
-          <Image col="14" row="1" src={image23.src} />
+          <Image col="14" position="front" row="3 / 5" src={image21.src} />
+          {/*<Image col="14" position="front" row="1" src={image22.src} />*/}
 
           {/* 2021-09-21 to our many trips across the world */}
-          <Image col="15 / 17" row="2 / 5" src={image24.src} />
+          {/*<Image col="15 / 17" position="front" row="2 / 5" src={image23.src} />*/}
 
           {/* 2021-12-24 then our engagement at fort mason */}
-          <Image col="18" row="2 / 4" src={image25.src} />
-          <Image col="18" row="4" src={image26.src} />
-          <Image col="17" row="1 / 3" src={image27.src} />
-          <Image col="17" row="3" src={image28.src} />
+          <Image col="18" position="front" row="2 / 4" src={image24.src} />
+          {/*<Image col="18" position="front" row="4" src={image25.src} />*/}
+          {/*<Image col="17" position="front" row="1 / 3" src={image26.src} />*/}
+          {/*<Image col="17" position="front" row="3" src={image27.src} />*/}
         </div>
       </div>
       <div className={styles.picturesGridContainer}>
@@ -303,56 +301,55 @@ export function MemoriesSection() {
           ref={picturesBackRef}
         >
           {/* 08/18 2017 from our first date at fort mason */}
-          <Image col="1" row="1" src={image01.src} />
-          <Image col="2 / 4" row="2" src={image02.src} />
-          <Image col="3" row="4" src={image03.src} />
-          <Image col="1 / 3" row="3 / 5" src={image04.src} />
+          <Image col="1" position="back" row="1" src={image01.src} />
+          {/*<Image col="2 / 4" position="back" row="2" src={image02.src} />*/}
+          <Image col="3" position="back" row="4" src={image03.src} />
+          <Image col="1 / 3" position="back" row="3 / 5" src={image04.src} />
 
           {/* 11/11 2017 followed by many more in SF */}
-          <Image col="4" row="2 / 4" src={image05.src} />
-          <Image col="4" row="5" src={image06.src} />
+          <Image col="4" position="back" row="2 / 4" src={image05.src} />
+          <Image col="4" position="back" row="5" src={image06.src} />
 
           {/* 12/03 2017 followed by many more in SF */}
-          <Image col="5" row="4" src={image07.src} />
-          <Image col="5" row="5" src={image08.src} />
-          <Image col="5" row="1 / 3" src={image09.src} />
+          <Image col="5" position="back" row="4" src={image07.src} />
+          <Image col="5" position="back" row="5" src={image08.src} />
+          <Image col="5" position="back" row="1 / 3" src={image09.src} />
 
           {/* 2017-12-22 to our many trips across the world */}
-          <Image col="6 / 8" row="2 / 4" src={image10.src} />
+          <Image col="6 / 8" position="back" row="2 / 4" src={image10.src} />
 
           {/* 2018-08-03 to our many trips across the world */}
-          {/* <Image col="9" row="3" src={image11.src} /> */}
-          <Image col="7 / 9" row="4 / 6" src={image12.src} />
+          {/*<Image col="7 / 9" position="back" row="4 / 6" src={image11.src} />*/}
 
           {/* 2018-11-01 to our many trips across the world */}
-          <Image col="8" row="3" src={image13.src} />
-          <Image col="9" row="3" src={image14.src} />
-          <Image col="8 / 10" row="1 / 3" src={image15.src} />
-          <Image col="10" row="2 / 4" src={image16.src} />
-          <Image col="10" row="4" src={image17.src} />
+          <Image col="8" position="back" row="3" src={image12.src} />
+          <Image col="9" position="back" row="3" src={image13.src} />
+          <Image col="8 / 10" position="back" row="1 / 3" src={image14.src} />
+          <Image col="10" position="back" row="2 / 4" src={image15.src} />
+          <Image col="10" position="back" row="4" src={image16.src} />
 
           {/* 2019-06-16 to our many trips across the world */}
-          <Image col="11 / 13" row="2 / 5" src={image18.src} />
+          <Image col="11 / 13" position="back" row="2 / 5" src={image17.src} />
 
           {/* 2019-12-25 to our many trips across the world */}
-          <Image col="12" row="5" src={image19.src} />
+          {/*<Image col="12" position="back" row="5" src={image18.src} />*/}
 
           {/* 2020-02-14 to our many trips across the world */}
-          <Image col="13" row="2" src={image20.src} />
-          <Image col="13" row="4" src={image21.src} />
+          {/*<Image col="13" position="back" row="2" src={image19.src} />*/}
+          <Image col="13" position="back" row="4" src={image20.src} />
 
           {/* 2021-05-28 to our many trips across the world */}
-          <Image col="14" row="3 / 5" src={image22.src} />
-          <Image col="14" row="1" src={image23.src} />
+          {/*<Image col="14" position="back" row="3 / 5" src={image21.src} />*/}
+          <Image col="14" position="back" row="1" src={image22.src} />
 
           {/* 2021-09-21 to our many trips across the world */}
-          <Image col="15 / 17" row="2 / 5" src={image24.src} />
+          <Image col="15 / 17" position="back" row="2 / 5" src={image23.src} />
 
           {/* 2021-12-24 then our engagement at fort mason */}
-          <Image col="18" row="2 / 4" src={image25.src} />
-          <Image col="18" row="4" src={image26.src} />
-          <Image col="17" row="1 / 3" src={image27.src} />
-          <Image col="17" row="3" src={image28.src} />
+          {/*<Image col="18" position="back" row="2 / 4" src={image24.src} />*/}
+          <Image col="18" position="back" row="4" src={image25.src} />
+          <Image col="17" position="back" row="1 / 3" src={image26.src} />
+          <Image col="17" position="back" row="3" src={image27.src} />
         </div>
       </div>
       <div className={cx(styles.overlayContainer, "force-hardware-acceleration")}>
@@ -398,6 +395,7 @@ function Image(
     src,
   } : {
     col : string
+    position: 'front' | 'back'
     row : string
     src : string
   }
@@ -417,7 +415,11 @@ function Image(
   }, [pictureContainerRef.current])
   return (
     <div
-      className={cx(styles.pictureContainer, 'force-hardware-acceleration')}
+      className={cx(
+        styles.pictureContainer,
+        // position === 'front' ? styles.pictureFront : styles.pictureBack,
+        'force-hardware-acceleration'
+      )}
       style={{ gridColumn: col, gridRow: row }}
       ref={pictureContainerRef}
     >
